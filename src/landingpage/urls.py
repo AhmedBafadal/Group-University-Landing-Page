@@ -13,9 +13,18 @@ Including another URLconf
     1. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import include, url
+from django.conf import settings
 from django.contrib import admin
+from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^$', 'newsletter.views.home', name='home'),
+    url(r'^contact/$', 'newsletter.views.contact', name='contact'),
+    url(r'^about/$', 'landingpage.views.about', name='about'),
+    url(r'^accounts/', include('registration.backends.default.urls')),
     url(r'^admin/', include(admin.site.urls)),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) #Only done in development environment and not in production
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) #Only done in development environment and not in production

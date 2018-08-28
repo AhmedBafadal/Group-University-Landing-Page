@@ -6,6 +6,14 @@ from .models import SignUp
 RUSSELL_GROUP = ['bham', 'bristol', 'cam', 'cardiff','dur','ed','exeter','gla','imperial','kcl','leeds','liverpool','lse','manchester','ncl','nottingham',
 'ox','qmul','qub','sheffield','southampton','ucl','warwick','york',]
 
+class ContactForm(forms.Form):
+    full_name = forms.CharField()
+    email = forms.EmailField()
+    message = forms.CharField()
+    
+
+
+
 class SignUpForm(forms.ModelForm):
     class Meta:
         model = SignUp

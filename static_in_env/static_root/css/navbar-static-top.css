@@ -1,0 +1,43 @@
+body {
+  min-height: 900px;
+}
+
+.navbar-static-top {
+  margin-bottom: 19px;
+  background-color:#1a428a;
+  border-color:rgb(255, 255, 255);
+}
+
+.navbar-default .navbar-brand {
+  color: #FFF;
+
+}
+.navbar-brand {
+  margin-top: -5px;
+}
+
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-default .navbar-brand:hover {
+  color: rgb(119, 119, 119);
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+  color: #999;
+}
+
+.navbar-default .navbar-toggle {
+ border-color: transparent !important;
+}
+
+.navbar-toggle:hover {
+	background-color: rgb(255, 255, 255) !important;
+}
+
+.navbar-toggle {
+	background-color: rgb(46, 166, 202) !important;
+}

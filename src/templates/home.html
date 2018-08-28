@@ -1,11 +1,99 @@
-<h1>Hi There</h1>
-<!-- {{ title }} -->
+{% extends "base.html" %} {% load crispy_forms_tags %} {% load staticfiles %} {% block head_title %}Welcome | {{ block.super }}{% endblock %}
+
+<style>
+	{% block style %}
+	.navbar-static-top {
+		margin-bottom: 0px !important;
+	}
+
+	.jumbotron {
+		background-color: rgb(24, 14, 61);
+		color: #FFF;
+	}
+
+	{% endblock %}
+</style>
 
 
 
-<form method="POST" action=".">{% csrf_token %}
-    
-    {{ form.as_p }}
-    <input type="submit" value="Sign Up">
-    <!-- <input type="text" name="" id=""> -->
-</form>
+{% block jumbotron %}
+{% if not request.user.is_authenticated %}
+
+<div class="jumbotron">
+	<div class="container">
+		<div class="row">
+			<div class='col-sm-6'>
+				<h3>
+					<font size="8">Russell Group
+						<br> University Newsletter</font>
+				</h3>
+				<p>
+					<font size="3">An online newsletter service delivering current and highly relevant career advice, news and course information for
+						undergraduate and postgraduate students as well as alumni from Russell Group universities exclusively.
+						<br/><br/>Sign up with your name and email below to join us today!</font>
+				</p>
+				<p>
+					<a class="btn btn-lg btn-primary" href="" role="button">Join Us &raquo;</a>
+				</p>
+			</div>
+			<div class='col-sm-6'>
+
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/3GHqJ8dvfVU?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media"
+				    allowfullscreen></iframe>
+			</div>
+		</div>
+	</div>
+</div>
+{% endif %}
+{% endblock %} 
+
+{% block content %}
+{% if request.user.is_authenticated %}
+<h1>Successfully logged in as admin!</h1>
+
+{% if queryset %}
+	 <h2 style="text-transform:capitalize">Welcome {{request.user}}</h2>
+	<table class='table'> -->
+			{% for instance in queryset %}
+				<tr><td>{{ forloop.counter }}</td><td>{{ instance.email }}</td><td>{{ instance.full_name }}</td><td>{{ instance.timestamp|timesince }} ago</td></tr>
+				{% if instance.email == "abc@gmail.edu" %}
+				<tr><td>is equal</td></tr>
+				{% endif %}
+			{% endfor %}
+			</table>
+{% endif %}
+	
+{% else %}
+<div class="row">
+
+	<div class="col-sm-3 pull-right">
+
+		<p class='lead text-align-center'>{{ title }}</p>
+
+		<form method='POST' action=''>{% csrf_token %} {{ form|crispy }}
+
+			<input class='btn btn-primary' type='submit' value='Sign Up' />
+
+		</form>
+	</div>
+	<div>
+		<div class='col-sm-3'>
+			<p class='lead text-align-center'>Relevant Advice For Undergraduates</p>
+			<img src='{% static "img/campus.jpg" %}' style="width:275px;height:150px"/>
+		</div>
+
+		<div class='col-sm-3'>
+			<p class='lead text-align-center'>Samples Of Top Courses For Postgraduate Study</p>
+			<img src='{% static "img/postgraduates.jpg" %}' style="width:275px;height:150px"/>
+		</div>
+
+		<div class='col-sm-3'>
+			<p class='lead text-align-center'>Practical Career Advice From Employers</p>
+			<img src='{% static "img/career.jpg" %}' style="width:275px;height:150px"/>
+		</div>
+	</div>
+
+</div>
+{% endif %}
+
+{% endblock %}
