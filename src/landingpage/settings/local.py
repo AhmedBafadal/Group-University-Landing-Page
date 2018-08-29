@@ -23,14 +23,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 SECRET_KEY = 'dd%6)v_%c8rd0v+(c+#vfq5l5phq3#-zpc40d&x8-b0waz9_m+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = []
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'yourgmail@gmail.com'
-EMAIL_HOST_PASSWORD = 'yourpassword'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_HOST_USER = 'yourgmail@gmail.com'
+# EMAIL_HOST_PASSWORD = 'yourpassword'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
 
 '''
 When using gmail, need to unlock Captcha to enable Django to send emails. 

@@ -1,7 +1,7 @@
 # Landing Page
 
 ## Description
-Web App developed using Python and Django that enables the collection of the email addresses for staff and students at Russell Group universities, with registration for password protected pages.
+Web App developed using Python and Django that enables the collection of the email addresses for undergraduate, postgraduate students as well as alumni at Russell Group universities, with registration required for password protected pages for staff.
 
 
 ## Implementation

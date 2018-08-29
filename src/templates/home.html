@@ -30,10 +30,10 @@
 				<p>
 					<font size="3">An online newsletter service delivering current and highly relevant career advice, news and course information for
 						undergraduate and postgraduate students as well as alumni from Russell Group universities exclusively.
-						<br/><br/>Sign up with your name and email below to join us today!</font>
+						<br/><br/>Sign up with your name and email to join us today!</font>
 				</p>
 				<p>
-					<a class="btn btn-lg btn-primary" href="" role="button">Join Us &raquo;</a>
+					<a class="btn btn-lg btn-primary" href="accounts/register" role="button">Join Us &raquo;</a>
 				</p>
 			</div>
 			<div class='col-sm-6'>
@@ -53,12 +53,10 @@
 
 {% if queryset %}
 	 <h2 style="text-transform:capitalize">Welcome {{request.user}}</h2>
-	<table class='table'> -->
+	<table class='table'>
 			{% for instance in queryset %}
 				<tr><td>{{ forloop.counter }}</td><td>{{ instance.email }}</td><td>{{ instance.full_name }}</td><td>{{ instance.timestamp|timesince }} ago</td></tr>
-				{% if instance.email == "abc@gmail.edu" %}
-				<tr><td>is equal</td></tr>
-				{% endif %}
+				
 			{% endfor %}
 			</table>
 {% endif %}

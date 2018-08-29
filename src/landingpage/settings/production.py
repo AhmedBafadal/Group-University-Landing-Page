@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 """
 from django.conf import settings
 
+# if not settings.DEBUG:
 if not settings.DEBUG:
     # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
     import os
@@ -25,15 +26,15 @@ if not settings.DEBUG:
     SECRET_KEY = 'dd%6)v_%c8rd0v+(c+#vfq5l5phq3#-zpc40d&x8-b0waz9_m+'
 
     # SECURITY WARNING: don't run with debug turned on in production!
-    DEBUG = False
+    DEBUG = True
     ADMINS = ("User", "admin@gmail.com")
 
     ALLOWED_HOSTS = []
-    EMAIL_HOST = 'smtp.gmail.com'
-    EMAIL_HOST_USER = 'yourgmail@gmail.com'
-    EMAIL_HOST_PASSWORD = 'yourpassword'
-    EMAIL_PORT = 587
-    EMAIL_USE_TLS = True
+    # EMAIL_HOST = 'smtp.gmail.com'
+    # EMAIL_HOST_USER = 'yourgmail@gmail.com'
+    # EMAIL_HOST_PASSWORD = 'yourpassword'
+    # EMAIL_PORT = 587
+    # EMAIL_USE_TLS = True
 
     '''
     When using gmail, need to unlock Captcha to enable Django to send emails. 
